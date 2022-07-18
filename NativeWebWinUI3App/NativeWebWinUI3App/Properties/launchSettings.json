@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "NativeWebWinUI3App (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "NativeWebWinUI3App (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
