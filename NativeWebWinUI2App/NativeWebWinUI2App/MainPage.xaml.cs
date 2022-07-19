@@ -22,7 +22,16 @@ namespace NativeWebWinUI2App
 
             webView2.NavigationCompleted += WebView2_NavigationCompleted;
 
+            InitializeWebView2Async();
+
             StatusUpdate("Ready");
+        }
+
+        private async void InitializeWebView2Async()
+        {
+            await webView2.EnsureCoreWebView2Async();
+            var dispatchAdapter = new WinRTAdapter.DispatchAdapter();
+            webView2.CoreWebView2.AddHostObjectToScript("Windows", dispatchAdapter.WrapNamedObject("Windows", dispatchAdapter));
         }
 
         private void StatusUpdate(string message)
