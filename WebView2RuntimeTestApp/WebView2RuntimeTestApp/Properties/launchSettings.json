@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "WebView2RuntimeTestApp (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "WebView2RuntimeTestApp (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
