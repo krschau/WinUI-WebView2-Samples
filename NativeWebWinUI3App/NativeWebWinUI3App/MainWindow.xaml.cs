@@ -9,9 +9,6 @@ using System;
 
 namespace NativeWebWinUI3App
 {
-    /// <summary>
-    /// An empty window that can be used on its own or navigated to within a Frame.
-    /// </summary>
     public sealed partial class MainWindow : Window
     {
         public MainWindow()
@@ -22,7 +19,16 @@ namespace NativeWebWinUI3App
 
             webView2.NavigationCompleted += WebView2_NavigationCompleted;
 
+            InitializeWebView2Async();
+
             StatusUpdate("Ready");
+        }
+
+        private async void InitializeWebView2Async()
+        {
+            await webView2.EnsureCoreWebView2Async();
+            var dispatchAdapter = new WinRTAdapter.DispatchAdapter();
+            webView2.CoreWebView2.AddHostObjectToScript("Windows", dispatchAdapter.WrapNamedObject("Windows", dispatchAdapter));
         }
 
         private void StatusUpdate(string message)
