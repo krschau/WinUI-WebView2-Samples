@@ -11,7 +11,7 @@ namespace winrt::CppWinrtRuntimeComponent::implementation
     {
         Thermometer() = default;
 
-        void AdjustTemperature(float deltaFahrenheit);
+        float AdjustTemperature(float deltaFahrenheit);
 
     private:
         float m_temperatureFahrenheit{ 0.f };

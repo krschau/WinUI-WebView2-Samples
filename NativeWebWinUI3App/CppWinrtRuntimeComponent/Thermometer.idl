@@ -3,6 +3,6 @@ namespace CppWinrtRuntimeComponent
     runtimeclass Thermometer
     {
         Thermometer();
-        void AdjustTemperature(Single deltaFahrenheit);
+        Single AdjustTemperature(Single deltaFahrenheit);
     };
 }

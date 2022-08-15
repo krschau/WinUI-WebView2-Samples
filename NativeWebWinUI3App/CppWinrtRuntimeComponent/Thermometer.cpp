@@ -8,8 +8,9 @@
 
 namespace winrt::CppWinrtRuntimeComponent::implementation
 {
-    void Thermometer::AdjustTemperature(float deltaFahrenheit)
+    float Thermometer::AdjustTemperature(float deltaFahrenheit)
     {
         m_temperatureFahrenheit += deltaFahrenheit;
+        return m_temperatureFahrenheit;
     }
 }
