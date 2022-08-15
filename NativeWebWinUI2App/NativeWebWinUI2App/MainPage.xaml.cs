@@ -30,8 +30,24 @@ namespace NativeWebWinUI2App
         private async void InitializeWebView2Async()
         {
             await webView2.EnsureCoreWebView2Async();
+
+            var browserHostObject = new ThermometerWRC.Thermometer();
+            browserHostObject.AdjustTemperature(1.0f);
+
             var dispatchAdapter = new WinRTAdapter.DispatchAdapter();
             webView2.CoreWebView2.AddHostObjectToScript("Windows", dispatchAdapter.WrapNamedObject("Windows", dispatchAdapter));
+            webView2.CoreWebView2.AddHostObjectToScript("ThermometerWRC", dispatchAdapter.WrapNamedObject("ThermometerWRC", dispatchAdapter));
+
+            // Run these commands to use your winrt objects in the browser:
+            /*
+            const Windows = chrome.webview.hostObjects.sync.Windows;
+            (new Windows.Globalization.Language("en-US")).displayName;
+
+            const rc = chrome.webview.hostObjects.sync.ThermometerWRC;
+            const thermometer = new rc.Thermometer();
+            thermometer.adjustTemperature(1.0);
+            thermometer.adjustTemperature(1.0);
+            */
         }
 
         private void StatusUpdate(string message)

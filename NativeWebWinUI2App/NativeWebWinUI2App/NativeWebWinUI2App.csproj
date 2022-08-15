@@ -158,10 +158,17 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ThermometerWRC\ThermometerWRC.vcxproj">
+      <Project>{2d353cb4-de5c-4941-a07c-d0df55be226b}</Project>
+      <Name>ThermometerWRC</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WinRTAdapter\WinRTAdapter.vcxproj">
       <Project>{bc070b78-0586-40d3-8940-92e1c3ab22c8}</Project>
       <Name>WinRTAdapter</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
