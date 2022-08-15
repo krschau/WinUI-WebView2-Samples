@@ -36,6 +36,7 @@
     <ProjectCapability Include="Msix" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ComponentProjection\ComponentProjection.csproj" />
     <ProjectReference Include="..\WinRTAdapter\WinRTAdapter.vcxproj" />
   </ItemGroup>
   <PropertyGroup>

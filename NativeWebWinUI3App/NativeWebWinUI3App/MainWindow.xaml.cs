@@ -1,4 +1,5 @@
-﻿using Microsoft.UI.Xaml;
+﻿using CppWinrtRuntimeComponent;
+using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.Web.WebView2.Core;
@@ -28,8 +29,8 @@ namespace NativeWebWinUI3App
         {
             await webView2.EnsureCoreWebView2Async();
 
-            //var browserHostObject = new Thermometer();
-            //browserHostObject.AdjustTemperature(1.0f);
+            var browserHostObject = new Thermometer();
+            browserHostObject.AdjustTemperature(1.0f);
 
             var dispatchAdapter = new WinRTAdapter.DispatchAdapter();
             webView2.CoreWebView2.AddHostObjectToScript("Windows", dispatchAdapter.WrapNamedObject("Windows", dispatchAdapter));
