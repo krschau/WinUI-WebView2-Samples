@@ -27,8 +27,14 @@ namespace NativeWebWinUI3App
         private async void InitializeWebView2Async()
         {
             await webView2.EnsureCoreWebView2Async();
+
+            //var browserHostObject = new Thermometer();
+            //browserHostObject.AdjustTemperature(1.0f);
+
             var dispatchAdapter = new WinRTAdapter.DispatchAdapter();
             webView2.CoreWebView2.AddHostObjectToScript("Windows", dispatchAdapter.WrapNamedObject("Windows", dispatchAdapter));
+
+            webView2.CoreWebView2.AddHostObjectToScript("CppWinrtRuntimeComponent", dispatchAdapter.WrapNamedObject("CppWinrtRuntimeComponent", dispatchAdapter));
         }
 
         private void StatusUpdate(string message)
